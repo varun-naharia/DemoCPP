@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/Users/varun/Documents/Projects/CPP/Demo/build/SDKThirdParty-prefix/src/SDKThirdParty-build/CMakeFiles/thrift"
+		},
+		{
+			"file" : "/Users/varun/Documents/Projects/CPP/Demo/build/SDKThirdParty-prefix/src/SDKThirdParty-build/CMakeFiles/thrift.rule"
+		},
+		{
+			"file" : "/Users/varun/Documents/Projects/CPP/Demo/build/SDKThirdParty-prefix/src/SDKThirdParty-build/CMakeFiles/thrift-complete.rule"
+		},
+		{
+			"file" : "/Users/varun/Documents/Projects/CPP/Demo/build/SDKThirdParty-prefix/src/SDKThirdParty-build/thrift-prefix/src/thrift-stamp/thrift-build.rule"
+		},
+		{
+			"file" : "/Users/varun/Documents/Projects/CPP/Demo/build/SDKThirdParty-prefix/src/SDKThirdParty-build/thrift-prefix/src/thrift-stamp/thrift-configure.rule"
+		},
+		{
+			"file" : "/Users/varun/Documents/Projects/CPP/Demo/build/SDKThirdParty-prefix/src/SDKThirdParty-build/thrift-prefix/src/thrift-stamp/thrift-download.rule"
+		},
+		{
+			"file" : "/Users/varun/Documents/Projects/CPP/Demo/build/SDKThirdParty-prefix/src/SDKThirdParty-build/thrift-prefix/src/thrift-stamp/thrift-install.rule"
+		},
+		{
+			"file" : "/Users/varun/Documents/Projects/CPP/Demo/build/SDKThirdParty-prefix/src/SDKThirdParty-build/thrift-prefix/src/thrift-stamp/thrift-mkdir.rule"
+		},
+		{
+			"file" : "/Users/varun/Documents/Projects/CPP/Demo/build/SDKThirdParty-prefix/src/SDKThirdParty-build/thrift-prefix/src/thrift-stamp/thrift-patch.rule"
+		},
+		{
+			"file" : "/Users/varun/Documents/Projects/CPP/Demo/build/SDKThirdParty-prefix/src/SDKThirdParty-build/thrift-prefix/src/thrift-stamp/thrift-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"thrift"
+		],
+		"name" : "thrift"
+	}
+}

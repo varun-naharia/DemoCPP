@@ -1,0 +1,19 @@
+# Hashes of file build rules.
+4c145069971b8a03aa7d3b75d812fdcf CMakeFiles/LibCore
+dcd28d9795d319cecd649199ddf01152 CMakeFiles/LibCore-complete
+4c145069971b8a03aa7d3b75d812fdcf CMakeFiles/SDKThirdParty
+fcb85bf4d935585c6977d5fc7fa9c27b CMakeFiles/SDKThirdParty-complete
+4b91f3160e227842f19c44fdc14c58da LibCore-prefix/src/LibCore-stamp/LibCore-build
+a568868e97c789e19b9dafe6bd828003 LibCore-prefix/src/LibCore-stamp/LibCore-configure
+f1b01cb1f1078fff6082c422ef4cbb34 LibCore-prefix/src/LibCore-stamp/LibCore-download
+717ef98659ddf7a5ef533f8c0109cacf LibCore-prefix/src/LibCore-stamp/LibCore-install
+8d8467bcd9cef0722192fc573020f5c4 LibCore-prefix/src/LibCore-stamp/LibCore-mkdir
+1bbd124ad55373978fa0d210b673c9d0 LibCore-prefix/src/LibCore-stamp/LibCore-patch
+2147b4f942ef50b3f1a86776d27cbc20 LibCore-prefix/src/LibCore-stamp/LibCore-update
+168fda52d05935571d37088805e35a7b SDKThirdParty-prefix/src/SDKThirdParty-stamp/SDKThirdParty-build
+a8cd213e7f44bfe5821554164b405fe1 SDKThirdParty-prefix/src/SDKThirdParty-stamp/SDKThirdParty-configure
+f78f76d0c925dc7c7a9e043617a236c7 SDKThirdParty-prefix/src/SDKThirdParty-stamp/SDKThirdParty-download
+9e9d41e635b5f61d0471990cfc80cfab SDKThirdParty-prefix/src/SDKThirdParty-stamp/SDKThirdParty-install
+dbdefc6957bc96c3377c1f7c541f247b SDKThirdParty-prefix/src/SDKThirdParty-stamp/SDKThirdParty-mkdir
+39e607ba710b68137d18d03b05507689 SDKThirdParty-prefix/src/SDKThirdParty-stamp/SDKThirdParty-patch
+a5f16889d4003fd48c20007fa9bb7772 SDKThirdParty-prefix/src/SDKThirdParty-stamp/SDKThirdParty-update

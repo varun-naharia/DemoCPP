@@ -1,0 +1,28 @@
+crypto/dh/dh_lib.o: \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/crypto/dh/dh_lib.c \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/internal/cryptlib.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/crypto.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/e_os2.h \
+  include/openssl/opensslconf.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/opensslv.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/safestack.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/stack.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/ossl_typ.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/cryptoerr.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/symhacks.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/buffer.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/buffererr.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/bio.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/bioerr.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/err.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/lhash.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/internal/nelem.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/internal/refcount.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/bn.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/bnerr.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/crypto/dh/dh_locl.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/dh.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/asn1.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/asn1err.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/dherr.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/engine.h

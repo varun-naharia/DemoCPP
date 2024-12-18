@@ -1,0 +1,27 @@
+
+
+# Define the toolset for iOS (arm64 architecture)
+using darwin : arm64 : clang++ -arch arm64 -miphoneos-version-min=9.0 -isysroot $(xcrun --sdk iphoneos --show-sdk-path) ;
+
+# Define the toolset for iOS Simulator (x86_64 architecture)
+using darwin : x86_64 : clang++ -arch x86_64 -mios-simulator-version-min=9.0 -isysroot $(xcrun --sdk iphonesimulator --show-sdk-path) ;
+
+
+# macOS (Clang)
+using clang : macos
+: "xcrun clang++"
+  -std=c++11 -stdlib=libc++ -fPIC -O2
+  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
+;
+
+# Android ARM64
+using clang : android
+: "$(ENV[ANDROID_NDK_HOME])/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android21-clang++"
+  -std=c++11 -fPIC -O2 --sysroot="$(ENV[ANDROID_NDK_HOME])/toolchains/llvm/prebuilt/linux-x86_64/sysroot"
+;
+
+# Android x86_64
+using clang : androidsimulator
+: "$(ENV[ANDROID_NDK_HOME])/toolchains/llvm/prebuilt/linux-x86_64/bin/x86_64-linux-android21-clang++"
+  -std=c++11 -fPIC -O2 --sysroot="$(ENV[ANDROID_NDK_HOME])/toolchains/llvm/prebuilt/linux-x86_64/sysroot"
+;

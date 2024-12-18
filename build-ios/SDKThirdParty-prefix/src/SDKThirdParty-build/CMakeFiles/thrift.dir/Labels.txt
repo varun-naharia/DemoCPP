@@ -1,0 +1,13 @@
+# Target labels
+ thrift
+# Source files and their labels
+/Users/varun/Documents/Projects/CPP/Demo/build-ios/SDKThirdParty-prefix/src/SDKThirdParty-build/CMakeFiles/thrift
+/Users/varun/Documents/Projects/CPP/Demo/build-ios/SDKThirdParty-prefix/src/SDKThirdParty-build/CMakeFiles/thrift.rule
+/Users/varun/Documents/Projects/CPP/Demo/build-ios/SDKThirdParty-prefix/src/SDKThirdParty-build/CMakeFiles/thrift-complete.rule
+/Users/varun/Documents/Projects/CPP/Demo/build-ios/SDKThirdParty-prefix/src/SDKThirdParty-build/thrift-prefix/src/thrift-stamp/thrift-build.rule
+/Users/varun/Documents/Projects/CPP/Demo/build-ios/SDKThirdParty-prefix/src/SDKThirdParty-build/thrift-prefix/src/thrift-stamp/thrift-configure.rule
+/Users/varun/Documents/Projects/CPP/Demo/build-ios/SDKThirdParty-prefix/src/SDKThirdParty-build/thrift-prefix/src/thrift-stamp/thrift-download.rule
+/Users/varun/Documents/Projects/CPP/Demo/build-ios/SDKThirdParty-prefix/src/SDKThirdParty-build/thrift-prefix/src/thrift-stamp/thrift-install.rule
+/Users/varun/Documents/Projects/CPP/Demo/build-ios/SDKThirdParty-prefix/src/SDKThirdParty-build/thrift-prefix/src/thrift-stamp/thrift-mkdir.rule
+/Users/varun/Documents/Projects/CPP/Demo/build-ios/SDKThirdParty-prefix/src/SDKThirdParty-build/thrift-prefix/src/thrift-stamp/thrift-patch.rule
+/Users/varun/Documents/Projects/CPP/Demo/build-ios/SDKThirdParty-prefix/src/SDKThirdParty-build/thrift-prefix/src/thrift-stamp/thrift-update.rule

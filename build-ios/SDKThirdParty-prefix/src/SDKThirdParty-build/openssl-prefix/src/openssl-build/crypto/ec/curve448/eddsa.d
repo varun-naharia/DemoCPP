@@ -1,0 +1,32 @@
+crypto/ec/curve448/eddsa.o: \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/crypto/ec/curve448/eddsa.c \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/crypto.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/e_os2.h \
+  include/openssl/opensslconf.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/opensslv.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/safestack.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/stack.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/ossl_typ.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/cryptoerr.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/symhacks.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/evp.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/bio.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/bioerr.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/evperr.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/objects.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/obj_mac.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/asn1.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/asn1err.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/bn.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/bnerr.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/objectserr.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/crypto/ec/curve448/curve448_lcl.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/crypto/ec/curve448/curve448utils.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/crypto/ec/curve448/word.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/crypto/ec/curve448/arch_32/arch_intrinsics.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/internal/constant_time_locl.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/crypto/ec/curve448/ed448.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/crypto/ec/curve448/point_448.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/crypto/ec/curve448/field.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/crypto/ec/curve448/arch_32/f_impl.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/internal/numbers.h

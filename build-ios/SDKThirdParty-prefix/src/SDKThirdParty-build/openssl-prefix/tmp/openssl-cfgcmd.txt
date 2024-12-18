@@ -1,0 +1,1 @@
+cmd='/Users/varun/Documents/Projects/CPP/Demo/ThirdParty/openssl-1.1.1c/Configure;ios64-cross;--prefix=<INSTALL_DIR>;no-asm'

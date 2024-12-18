@@ -1,0 +1,13 @@
+# Target labels
+ LibCore
+# Source files and their labels
+/Users/varun/Documents/Projects/CPP/Demo/build/CMakeFiles/LibCore
+/Users/varun/Documents/Projects/CPP/Demo/build/CMakeFiles/LibCore.rule
+/Users/varun/Documents/Projects/CPP/Demo/build/CMakeFiles/LibCore-complete.rule
+/Users/varun/Documents/Projects/CPP/Demo/build/LibCore-prefix/src/LibCore-stamp/LibCore-build.rule
+/Users/varun/Documents/Projects/CPP/Demo/build/LibCore-prefix/src/LibCore-stamp/LibCore-configure.rule
+/Users/varun/Documents/Projects/CPP/Demo/build/LibCore-prefix/src/LibCore-stamp/LibCore-download.rule
+/Users/varun/Documents/Projects/CPP/Demo/build/LibCore-prefix/src/LibCore-stamp/LibCore-install.rule
+/Users/varun/Documents/Projects/CPP/Demo/build/LibCore-prefix/src/LibCore-stamp/LibCore-mkdir.rule
+/Users/varun/Documents/Projects/CPP/Demo/build/LibCore-prefix/src/LibCore-stamp/LibCore-patch.rule
+/Users/varun/Documents/Projects/CPP/Demo/build/LibCore-prefix/src/LibCore-stamp/LibCore-update.rule

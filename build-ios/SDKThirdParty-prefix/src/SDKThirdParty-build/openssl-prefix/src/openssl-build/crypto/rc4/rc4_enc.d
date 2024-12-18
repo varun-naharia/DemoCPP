@@ -1,0 +1,21 @@
+crypto/rc4/rc4_enc.o: \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/crypto/rc4/rc4_enc.c \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/rc4.h \
+  include/openssl/opensslconf.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/opensslv.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/crypto/rc4/rc4_locl.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/internal/cryptlib.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/crypto.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/e_os2.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/safestack.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/stack.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/ossl_typ.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/cryptoerr.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/symhacks.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/buffer.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/buffererr.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/bio.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/bioerr.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/err.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/lhash.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/internal/nelem.h

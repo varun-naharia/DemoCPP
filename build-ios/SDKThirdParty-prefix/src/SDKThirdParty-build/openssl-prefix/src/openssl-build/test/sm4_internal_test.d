@@ -1,0 +1,19 @@
+test/sm4_internal_test.o: \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/test/sm4_internal_test.c \
+  include/openssl/opensslconf.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/opensslv.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/test/testutil.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/err.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/e_os2.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/ossl_typ.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/bio.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/crypto.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/safestack.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/stack.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/cryptoerr.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/symhacks.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/bioerr.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/lhash.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/bn.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/bnerr.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/crypto/include/internal/sm4.h

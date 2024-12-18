@@ -1,0 +1,25 @@
+crypto/bio/b_addr.o: \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/crypto/bio/b_addr.c \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/crypto/bio/bio_lcl.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/e_os.h \
+  include/openssl/opensslconf.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/opensslv.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/e_os2.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/crypto.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/safestack.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/stack.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/ossl_typ.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/cryptoerr.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/symhacks.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/internal/nelem.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/internal/sockets.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/internal/refcount.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/internal/cryptlib.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/buffer.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/buffererr.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/bio.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/bioerr.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/err.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/lhash.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/internal/bio.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/internal/thread_once.h

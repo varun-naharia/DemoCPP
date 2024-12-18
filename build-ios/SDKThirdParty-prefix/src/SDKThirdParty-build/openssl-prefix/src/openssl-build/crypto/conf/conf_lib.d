@@ -1,0 +1,22 @@
+crypto/conf/conf_lib.o: \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/crypto/conf/conf_lib.c \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/e_os.h \
+  include/openssl/opensslconf.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/opensslv.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/e_os2.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/crypto.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/safestack.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/stack.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/ossl_typ.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/cryptoerr.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/symhacks.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/internal/nelem.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/internal/conf.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/conf.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/bio.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/bioerr.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/lhash.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/conferr.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/crypto/include/internal/ctype.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/err.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/conf_api.h

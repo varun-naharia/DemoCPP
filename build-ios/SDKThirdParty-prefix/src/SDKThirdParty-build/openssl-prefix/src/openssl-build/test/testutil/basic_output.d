@@ -1,0 +1,20 @@
+test/testutil/basic_output.o: \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/test/testutil/basic_output.c \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/test/testutil/../testutil.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/err.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/e_os2.h \
+  include/openssl/opensslconf.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/opensslv.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/ossl_typ.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/bio.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/crypto.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/safestack.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/stack.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/cryptoerr.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/symhacks.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/bioerr.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/lhash.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/bn.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/include/openssl/bnerr.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/test/testutil/output.h \
+  ../../../../../../../ThirdParty/openssl-1.1.1c/test/testutil/tu_local.h

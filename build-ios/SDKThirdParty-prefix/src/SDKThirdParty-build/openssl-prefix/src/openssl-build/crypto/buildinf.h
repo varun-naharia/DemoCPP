@@ -11,7 +11,7 @@
  */
 
 #define PLATFORM "platform: ios64-cross"
-#define DATE "built on: Wed Dec 18 06:53:10 2024 UTC"
+#define DATE "built on: Wed Dec 18 08:30:36 2024 UTC"
 
 /*
  * Generate compiler_flags as an array of individual characters. This is a

@@ -150,8 +150,8 @@ CMakeFiles/boost.dir/clean:
 # Target rules for target CMakeFiles/thrift.dir
 
 # All Build rule for target.
-CMakeFiles/thrift.dir/all: CMakeFiles/boost.dir/all
 CMakeFiles/thrift.dir/all: CMakeFiles/openssl.dir/all
+CMakeFiles/thrift.dir/all: CMakeFiles/boost.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/thrift.dir/build.make CMakeFiles/thrift.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/thrift.dir/build.make CMakeFiles/thrift.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/varun/Documents/Projects/CPP/Demo/build-ios/SDKThirdParty-prefix/src/SDKThirdParty-build/CMakeFiles --progress-num=19,20,21,22,23,24,25,26 "Built target thrift"
@@ -169,8 +169,8 @@ thrift: CMakeFiles/thrift.dir/rule
 .PHONY : thrift
 
 # codegen rule for target.
-CMakeFiles/thrift.dir/codegen: CMakeFiles/boost.dir/all
 CMakeFiles/thrift.dir/codegen: CMakeFiles/openssl.dir/all
+CMakeFiles/thrift.dir/codegen: CMakeFiles/boost.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/thrift.dir/build.make CMakeFiles/thrift.dir/codegen
 .PHONY : CMakeFiles/thrift.dir/codegen
 

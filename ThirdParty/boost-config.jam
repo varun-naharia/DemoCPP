@@ -1,3 +1,9 @@
-using darwin : : clang++ :
-    <cxxflags>"-arch arm64 -miphoneos-version-min=9.0 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk -std=c++11"
-    <linkflags>"-arch arm64 -miphoneos-version-min=9.0 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk" ;
+# IOS ARM64
+using clang : iphoneos 
+: xcrun clang -arch arm64 -stdlib=libc++ -miphoneos-version-min=12.0 -fvisibility-inlines-hidden -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk
+;
+
+# IOS x86_64
+using clang : iphonesimulator
+: xcrun clang -arch x86_64 -stdlib=libc++ -std=c++11 -miphoneos-version-min=12.0 -fvisibility-inlines-hidden -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk
+;

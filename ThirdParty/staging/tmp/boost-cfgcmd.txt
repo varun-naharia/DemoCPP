@@ -1,0 +1,1 @@
+cmd='/Applications/CMake.app/Contents/bin/cmake;-DBOOST_ROOT=/Users/varun/Documents/Projects/CPP/Demo/ThirdParty/boost-1.86.0;-DPLATFORM=OS64;-without-libraries=process;-DBoost_USE_STATIC_LIBS=ON;-DCMAKE_TOOLCHAIN_FILE='/Users/varun/Downloads/ios-cmake-master/ios.toolchain.cmake';/Users/varun/Documents/Projects/CPP/Demo/ThirdParty/boost-1.86.0/CMakeLists.txt'

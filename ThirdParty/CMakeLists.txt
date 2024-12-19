@@ -5,10 +5,12 @@ project(SDKThirdParty)
 include(ExternalProject)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_COMPILER "xcrun clang")
+
 
 # Set the source and build directories
 set(OPENSSL_DIR openssl-1.1.1c)
-set(BOOST_DIR boost-1.86.0)
+set(BOOST_DIR boost-1.87.0)
 set(THRIFT_DIR thrift-0.14.2)
 set(OPENSSL_CONFIGURE_CMD "")
 set(BOOST_INSTALL_COMMAND "")
@@ -49,10 +51,13 @@ if(TARGET_PLATFORM STREQUAL "iOS")
         ./b2 -j6 install 
         --prefix=/Users/varun/Documents/Projects/CPP/Demo/build-ios/staging 
         -sBOOST_BUILD_USER_CONFIG=/Users/varun/Documents/Projects/CPP/Demo/ThirdParty/boost-config.jam 
-        toolset=darwin 
+        toolset=clang-iphoneos 
         target-os=iphone 
         variant=release 
-        link=static  
+        --without-process
+        binary-format=mach-o 
+        abi=aapcs 
+        link=static stage
         -d+2
         )
 

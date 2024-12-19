@@ -45,7 +45,7 @@ build_ios_project() {
     cmake -DTARGET_PLATFORM="iOS" -DARCHITECTURE="arm64" ..
 
     echo "Building the project..."
-    cmake --build .
+    cmake --build . -v  | tee build-ios.log
 
     echo "Build completed."
 }

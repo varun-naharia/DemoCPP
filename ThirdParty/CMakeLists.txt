@@ -3,6 +3,8 @@ cmake_minimum_required(VERSION 3.22)
 project(SDKThirdParty)
 
 include(ExternalProject)
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Set the source and build directories
 set(OPENSSL_DIR openssl-1.1.1c)
@@ -19,56 +21,57 @@ if(TARGET_PLATFORM STREQUAL "iOS")
         -DPLATFORM=OS64
         -DCMAKE_BUILD_TYPE=Release
     )
-    if(ARCHITECTURE STREQUAL "arm64")
+     if(ARCHITECTURE STREQUAL "arm64")
         message("building for arm64")
         set(OPENSSL_CONFIGURE_CMD "ios64-cross")
 
         # Set the CMake arguments for Boost
-        set(BOOST_CMAKE_ARGS
-            -DCMAKE_TOOLCHAIN_FILE=/Users/varun/Downloads/ios-cmake-master/ios.toolchain.cmake
-            -DBOOST_ROOT=${BOOST_SRC}
-            -DBOOST_INCLUDE_DIR=${BOOST_SRC}/boost
-            -DBOOST_LIBRARY_DIR=${BOOST_SRC}/stage/lib
-            -DBOOST_CMAKE_BUILD_TYPE=Release
-            -DBOOST_USE_STATIC_LIBS=ON
-            -DCMAKE_CXX_FLAGS="-miphoneos-version-min=${IOS_MIN_VERSION} -stdlib=${STDLIB}"
-            -DCMAKE_OSX_ARCHITECTURES=${ARCHITECTURE}
-            -DCMAKE_OSX_SYSROOT=iphoneos
-            -DCMAKE_OSX_DEPLOYMENT_TARGET=${IOS_MIN_VERSION}
-        )
+        # set(BOOST_CMAKE_ARGS
+        #     -DCMAKE_TOOLCHAIN_FILE=/Users/varun/Downloads/ios-cmake-master/ios.toolchain.cmake
+        #     -DBOOST_ROOT=${BOOST_SRC}
+        #     -DBOOST_INCLUDE_DIR=${BOOST_SRC}/boost
+        #     -DBOOST_LIBRARY_DIR=${BOOST_SRC}/stage/lib
+        #     -DBOOST_CMAKE_BUILD_TYPE=Release
+        #     -DBOOST_USE_STATIC_LIBS=ON
+        #     -DCMAKE_CXX_FLAGS="-miphoneos-version-min=${IOS_MIN_VERSION} -stdlib=${STDLIB}"
+        #     -DCMAKE_OSX_ARCHITECTURES=${ARCHITECTURE}
+        #     -DCMAKE_OSX_SYSROOT=iphoneos
+        #     -DCMAKE_OSX_DEPLOYMENT_TARGET=${IOS_MIN_VERSION}
+        # )
 
         # Define the Boost directory and installation directory
-        set(IOS_SDK_VERSION "14.0")  # Change this to your desired iOS SDK version
-        set(IOS_MIN_VERSION "9.0")   # Minimum iOS version
-        set(STDLIB "libc++")         # Standard library to use
+        # set(IOS_SDK_VERSION "14.0")  # Change this to your desired iOS SDK version
+        # set(IOS_MIN_VERSION "9.0")   # Minimum iOS version
+        # set(STDLIB "libc++")         # Standard library to use
 
         # Define the command to install Boost
         set(BOOST_INSTALL_COMMAND
-            ./b2 install
-            --prefix=<INSTALL_DIR>
-            -sBOOST_BUILD_USER_CONFIG=${CMAKE_CURRENT_SOURCE_DIR}/boost-config.jam
-            toolset=darwin
-            cxxflags="-arch arm64 -miphoneos-version-min=${IOS_MIN_VERSION} -isysroot $(xcrun --sdk iphoneos --show-sdk-path)"
-            linkflags="-arch arm64 -miphoneos-version-min=${IOS_MIN_VERSION} -isysroot $(xcrun --sdk iphoneos --show-sdk-path)"
-            target-os=iphone
-            variant=release
-            link=static
+        ./b2 -j6 install 
+        --prefix=/Users/varun/Documents/Projects/CPP/Demo/build-ios/staging 
+        -sBOOST_BUILD_USER_CONFIG=/Users/varun/Documents/Projects/CPP/Demo/ThirdParty/boost-config.jam 
+        toolset=darwin 
+        target-os=iphone 
+        variant=release 
+        link=static  
+        -d+2
         )
+
+
 
     elseif(ARCHITECTURE STREQUAL "x86_64")
         set(OPENSSL_CONFIGURE_CMD "iossimulator-x86_64")
         #set install command for boost
-        set(BOOST_INSTALL_COMMAND
-            ./b2 install
-            --prefix=<INSTALL_DIR>
-            -sBOOST_BUILD_USER_CONFIG=${CMAKE_CURRENT_SOURCE_DIR}/boost-config.jam
-            toolset=darwin
-            cxxflags="-arch x86_64 -mios-simulator-version-min=${IOS_MIN_VERSION} -isysroot $(xcrun --sdk iphonesimulator --show-sdk-path)"
-            linkflags="-arch x86_64 -mios-simulator-version-min=${IOS_MIN_VERSION} -isysroot $(xcrun --sdk iphonesimulator --show-sdk-path)"
-            target-os=iphone
-            variant=release
-            link=static
-        )
+        # set(BOOST_INSTALL_COMMAND
+        #     ./b2 install
+        #     --prefix=<INSTALL_DIR>
+        #     -sBOOST_BUILD_USER_CONFIG=${CMAKE_CURRENT_SOURCE_DIR}/boost-config.jam
+        #     toolset=darwin
+        #     cxxflags="-arch x86_64 -mios-simulator-version-min=${IOS_MIN_VERSION} -isysroot $(xcrun --sdk iphonesimulator --show-sdk-path)"
+        #     linkflags="-arch x86_64 -mios-simulator-version-min=${IOS_MIN_VERSION} -isysroot $(xcrun --sdk iphonesimulator --show-sdk-path)"
+        #     target-os=iphone
+        #     variant=release
+        #     link=static
+        # )
     else()
         message(FATAL_ERROR "Unsupported architecture for iOS: ${ARCHITECTURE}")
     endif()

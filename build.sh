@@ -33,8 +33,8 @@ build_mac_project() {
 
 # Function to build the project
 build_ios_project() {
-    # clean_build_directory "$BUILD_IOS_DIR"
-    # mkdir "$BUILD_IOS_DIR"
+    clean_build_directory "$BUILD_IOS_DIR"
+    mkdir "$BUILD_IOS_DIR"
     cd "$BUILD_IOS_DIR" || exit
 
     echo ${IPHONE_SDKVERSION}

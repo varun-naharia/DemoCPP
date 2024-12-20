@@ -10,7 +10,7 @@ set(CMAKE_CXX_COMPILER "xcrun clang")
 
 # Set the source and build directories
 set(OPENSSL_DIR openssl-1.1.1c)
-set(BOOST_DIR boost-1.87.0)
+set(BOOST_DIR boost-1.86.0)
 set(THRIFT_DIR thrift-0.14.2)
 set(OPENSSL_CONFIGURE_CMD "")
 set(BOOST_INSTALL_COMMAND "")

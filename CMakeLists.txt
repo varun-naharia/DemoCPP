@@ -15,7 +15,7 @@ file(MAKE_DIRECTORY ${SDK_STAGING_DIR})
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
-set(TARGET_PLATFORM "iOS" CACHE STRING "Target platform for the build") # Options are macOS, Linux, iOS, Android.
+set(TARGET_PLATFORM "macOS" CACHE STRING "Target platform for the build") # Options are macOS, Linux, iOS, Android.
 set(ARCHITECTURE "arm64" CACHE STRING "Target Arch for the build") # Options are arm64, x86_64, android-arm64, 
 
 # # Add the ThirdParty directory
@@ -53,11 +53,20 @@ ExternalProject_Add(
     INSTALL_COMMAND "" # Disable the install step
 )
 
+if(TARGET_PLATFORM STREQUAL "iOS")
+    message("building for iOS")
+    set(EXTERNAL_PROJECT_CMAKE_ARGS
+        -DCMAKE_TOOLCHAIN_FILE='/Users/varun/Downloads/ios-cmake-master/ios.toolchain.cmake'
+        -DPLATFORM=OS64
+        -DCMAKE_BUILD_TYPE=Release
+    )
+endif ()
 
 ExternalProject_Add(
     LibCore
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/lib
     INSTALL_DIR ${SDK_STAGING_DIR}
+    CMAKE_ARGS ${EXTERNAL_PROJECT_CMAKE_ARGS}
     DEPENDS SDKThirdParty
     CMAKE_CACHE_ARGS
         -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>

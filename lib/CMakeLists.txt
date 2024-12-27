@@ -32,14 +32,16 @@ install(FILES
 
 set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib")
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
-add_executable(
-    libCore_test
-    ../main.cc
-    )
-    
-target_link_libraries(
-    libCore_test
-    LibCore)
-     
-install(TARGETS libCore_test 
-        RUNTIME DESTINATION tests)
+if(TARGET_PLATFORM STREQUAL "macOS")
+    add_executable(
+        libCore_test
+        ../main.cc
+        )
+        
+    target_link_libraries(
+        libCore_test
+        LibCore)
+        
+    install(TARGETS libCore_test 
+            RUNTIME DESTINATION tests)
+endif ()

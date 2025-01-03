@@ -15,6 +15,8 @@ set(THRIFT_DIR thrift-0.14.2)
 set(OPENSSL_CONFIGURE_CMD "")
 set(BOOST_INSTALL_COMMAND "")
 set(THRIFT_INSTALL_DIR ${CMAKE_CURRENT_SOURCE_DIR}/thrift)  # Change to your desired install directory
+set(ZLIB_DIR zlib-1.2.11)
+
 
 
 if(TARGET_PLATFORM STREQUAL "iOS")
@@ -28,11 +30,6 @@ if(TARGET_PLATFORM STREQUAL "iOS")
         message("building for arm64")
         set(OPENSSL_CONFIGURE_CMD "ios64-cross")
 
-        set(PLATFORM_SPECIFIC_ARGS
-            -DCMAKE_TOOLCHAIN_FILE='/Users/varun/Downloads/ios-cmake-master/ios.toolchain.cmake'
-            -DPLATFORM=OS64
-            -DCMAKE_BUILD_TYPE=Release
-        )
         # Define the command to install Boost
         set(BOOST_INSTALL_COMMAND
             ./b2 -j6 install 
@@ -72,7 +69,6 @@ if(TARGET_PLATFORM STREQUAL "iOS")
             -DBUILD_TUTORIALS=OFF
             -DBUILD_JAVASCRIPT=OFF
         )
-        set(PLATFORM_SPECIFIC_ARGS -DCMAKE_OSX_ARCHITECTURES="arm64;x86_64")
     elseif(ARCHITECTURE STREQUAL "x86_64")
         set(OPENSSL_CONFIGURE_CMD "iossimulator-x86_64")
        # Define the command to install Boost
@@ -94,8 +90,6 @@ if(TARGET_PLATFORM STREQUAL "iOS")
     endif()
 elseif(TARGET_PLATFORM STREQUAL "macOS")
     set(EXTERNAL_PROJECT_CMAKE_ARGS)
-
-    set(PLATFORM_SPECIFIC_ARGS -DCMAKE_OSX_ARCHITECTURES="arm64;x86_64")
 
     if(ARCHITECTURE STREQUAL "arm64")
         set(OPENSSL_CONFIGURE_CMD "darwin64-arm64-cc")
@@ -197,7 +191,68 @@ else()
     message(FATAL_ERROR "Unsupported TARGET_PLATFORM: ${TARGET_PLATFORM}")
 endif()
 
+set (CMAKE_OSX_DEPLOYMENT_TARGET 10.13)
 
+
+# Add ExternalProject for zlib
+# ExternalProject_Add(zlib
+#     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/${ZLIB_DIR}
+#     INSTALL_DIR ${THIRDPARTY_INSTALL_DIR}
+#     CMAKE_ARGS
+#         -DCMAKE_TOOLCHAIN_FILE='/Users/varun/Downloads/ios-cmake-master/ios.toolchain.cmake'
+#         -DCMAKE_BUILD_TYPE=Release
+#         -DPLATFORM=OS64
+#         -DCMAKE_INSTALL_PREFIX=<INSTALL_DIR>
+#         -DBUILD_SHARED_LIBS=OFF
+#         -DZLIB_BUILD_EXAMPLES=OFF
+#         -DZLIB_BUILD_TESTS=OFF
+#     BUILD_COMMAND ${CMAKE_COMMAND} --build . --target install
+#     INSTALL_COMMAND ""
+# )
+
+ExternalProject_Add(zlib
+    SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/${ZLIB_DIR}
+    INSTALL_DIR ${THIRDPARTY_INSTALL_DIR}
+    CMAKE_ARGS
+        -DCMAKE_TOOLCHAIN_FILE='/Users/varun/Downloads/ios-cmake-master/ios.toolchain.cmake'
+        -DPLATFORM=OS64
+        -DCMAKE_BUILD_TYPE=Release
+        -DCMAKE_INSTALL_PREFIX=${THIRDPARTY_INSTALL_DIR}
+        -DBUILD_SHARED_LIBS=OFF
+        # -DCMAKE_OSX_ARCHITECTURES=arm64
+    CONFIGURE_COMMAND ${CMAKE_COMMAND} -S <SOURCE_DIR> -B <BINARY_DIR>
+        -DCMAKE_BUILD_TYPE=Release
+        -DCMAKE_TOOLCHAIN_FILE='/Users/varun/Downloads/ios-cmake-master/ios.toolchain.cmake'
+        -DPLATFORM=OS64
+        -DCMAKE_INSTALL_PREFIX=${THIRDPARTY_INSTALL_DIR}
+    BUILD_COMMAND ${CMAKE_COMMAND} --build <BINARY_DIR> --target all
+    INSTALL_COMMAND ${CMAKE_COMMAND} --install <BINARY_DIR> --prefix ${THIRDPARTY_INSTALL_DIR}
+)
+
+
+
+# ExternalProject_Add_Step(zlib
+#     remove_example_target
+#     COMMAND ${CMAKE_COMMAND} -E echo "Removing example target"
+#     COMMAND ${CMAKE_COMMAND} -E rm -f <BINARY_DIR>/CMakeFiles/example.dir/*
+#     DEPENDEES configure
+#     DEPENDERS build
+# )
+
+
+# Platform-specific adjustments
+if(APPLE)
+    ExternalProject_Add_Step(zlib
+        fixinstallname
+        COMMAND ${CMAKE_INSTALL_NAME_TOOL} -id "@rpath/libz.1.dylib" <INSTALL_DIR>/lib/libz.1.dylib
+        COMMAND ${CMAKE_INSTALL_NAME_TOOL} -id "@rpath/libz.1.dylib" <INSTALL_DIR>/lib/libz.1.2.11.dylib
+        DEPENDEES install
+    )
+endif()
+
+# Get zlib install directory
+ExternalProject_Get_Property(zlib INSTALL_DIR)
+set(ZLIB_INSTALL_DIR ${INSTALL_DIR})
 
 # Add OpenSSL as an external project
 ExternalProject_Add(openssl
@@ -215,6 +270,7 @@ ExternalProject_Add_Step(openssl
 
 ExternalProject_Get_Property(openssl INSTALL_DIR)
 set(OPENSSL_INSTALL_DIR ${INSTALL_DIR})
+
 
 
 # External project for Boost
@@ -260,6 +316,4 @@ ExternalProject_Add(thrift
     )
 
 
-# message("BOOST_INCLUDE_DIR")
-# message(${BOOST_INCLUDE_DIR})
 

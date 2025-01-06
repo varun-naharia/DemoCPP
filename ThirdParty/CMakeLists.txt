@@ -69,6 +69,10 @@ if(TARGET_PLATFORM STREQUAL "iOS")
             -DBUILD_TUTORIALS=OFF
             -DBUILD_JAVASCRIPT=OFF
         )
+        set(PLATFORM_NAME "iOS Device")
+        set(TOOLCHAIN_FILE "/Users/varun/Downloads/ios-cmake-master/ios.toolchain.cmake")
+        set(PLATFORM "OS64")
+        set(CMAKE_OSX_ARCHITECTURES "arm64")
     elseif(ARCHITECTURE STREQUAL "x86_64")
         set(OPENSSL_CONFIGURE_CMD "iossimulator-x86_64")
        # Define the command to install Boost
@@ -85,6 +89,10 @@ if(TARGET_PLATFORM STREQUAL "iOS")
         link=static stage
         -d+2
        )
+        set(PLATFORM_NAME "iOS Simulator")
+        set(TOOLCHAIN_FILE "/Users/varun/Downloads/ios-cmake-master/ios.toolchain.cmake")
+        set(PLATFORM "SIMULATOR64")
+        set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64")
     else()
         message(FATAL_ERROR "Unsupported architecture for iOS: ${ARCHITECTURE}")
     endif()
@@ -195,49 +203,24 @@ set (CMAKE_OSX_DEPLOYMENT_TARGET 10.13)
 
 
 # Add ExternalProject for zlib
-# ExternalProject_Add(zlib
-#     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/${ZLIB_DIR}
-#     INSTALL_DIR ${THIRDPARTY_INSTALL_DIR}
-#     CMAKE_ARGS
-#         -DCMAKE_TOOLCHAIN_FILE='/Users/varun/Downloads/ios-cmake-master/ios.toolchain.cmake'
-#         -DCMAKE_BUILD_TYPE=Release
-#         -DPLATFORM=OS64
-#         -DCMAKE_INSTALL_PREFIX=<INSTALL_DIR>
-#         -DBUILD_SHARED_LIBS=OFF
-#         -DZLIB_BUILD_EXAMPLES=OFF
-#         -DZLIB_BUILD_TESTS=OFF
-#     BUILD_COMMAND ${CMAKE_COMMAND} --build . --target install
-#     INSTALL_COMMAND ""
-# )
-
 ExternalProject_Add(zlib
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/${ZLIB_DIR}
     INSTALL_DIR ${THIRDPARTY_INSTALL_DIR}
     CMAKE_ARGS
-        -DCMAKE_TOOLCHAIN_FILE='/Users/varun/Downloads/ios-cmake-master/ios.toolchain.cmake'
-        -DPLATFORM=OS64
+        -DCMAKE_TOOLCHAIN_FILE=${TOOLCHAIN_FILE}
+        -DPLATFORM=${PLATFORM}
         -DCMAKE_BUILD_TYPE=Release
         -DCMAKE_INSTALL_PREFIX=${THIRDPARTY_INSTALL_DIR}
         -DBUILD_SHARED_LIBS=OFF
-        # -DCMAKE_OSX_ARCHITECTURES=arm64
+        -DCMAKE_OSX_ARCHITECTURES=${CMAKE_OSX_ARCHITECTURES}
     CONFIGURE_COMMAND ${CMAKE_COMMAND} -S <SOURCE_DIR> -B <BINARY_DIR>
         -DCMAKE_BUILD_TYPE=Release
-        -DCMAKE_TOOLCHAIN_FILE='/Users/varun/Downloads/ios-cmake-master/ios.toolchain.cmake'
-        -DPLATFORM=OS64
+        -DCMAKE_TOOLCHAIN_FILE=${TOOLCHAIN_FILE}
+        -DPLATFORM=${PLATFORM}
         -DCMAKE_INSTALL_PREFIX=${THIRDPARTY_INSTALL_DIR}
     BUILD_COMMAND ${CMAKE_COMMAND} --build <BINARY_DIR> --target all
     INSTALL_COMMAND ${CMAKE_COMMAND} --install <BINARY_DIR> --prefix ${THIRDPARTY_INSTALL_DIR}
 )
-
-
-
-# ExternalProject_Add_Step(zlib
-#     remove_example_target
-#     COMMAND ${CMAKE_COMMAND} -E echo "Removing example target"
-#     COMMAND ${CMAKE_COMMAND} -E rm -f <BINARY_DIR>/CMakeFiles/example.dir/*
-#     DEPENDEES configure
-#     DEPENDERS build
-# )
 
 
 # Platform-specific adjustments

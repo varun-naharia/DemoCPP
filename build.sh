@@ -37,6 +37,11 @@ build_ios_project() {
     echo "Setting iOS environment variables..."
     export CROSS_TOP=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer
     export CROSS_SDK=iPhoneOS.sdk
+    # export ARCH=arm64
+    # export SDK=iphoneos
+    # export DEPLOYMENT_TARGET=11.0
+    # export CFLAGS="-arch $ARCH -isysroot $(xcrun -sdk $SDK --show-sdk-path) -m$SDK-version-min=$DEPLOYMENT_TARGET"
+
     echo "Running CMake for iOS..."
     cmake -G "Unix Makefiles" \
         -DCMAKE_TOOLCHAIN_FILE='/Users/varun/Downloads/ios-cmake-master/ios.toolchain.cmake' \

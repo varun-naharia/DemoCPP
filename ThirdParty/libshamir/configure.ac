@@ -1,0 +1,36 @@
+AC_PREREQ(2.57)
+AC_INIT(libshamir, [0.1.0], [duncankburke@gmail.com])
+AC_SUBST(LTLIBVER, 0:0:0)
+
+AC_CONFIG_MACRO_DIR(m4)
+
+AC_CONFIG_SRCDIR([include/shamir.h])
+
+AM_INIT_AUTOMAKE([1.9 foreign dist-bzip2 tar-ustar subdir-objects])
+AM_MAINTAINER_MODE
+
+AC_PROG_CPP
+AC_PROG_CC
+AC_PROG_CXX
+AC_PROG_CC_C99
+AC_PROG_INSTALL
+AC_PROG_LN_S
+AC_PROG_MAKE_SET
+
+AC_PROG_LIBTOOL
+
+AX_RANDOM_DEVICE
+
+AC_CONFIG_FILES([
+Makefile
+libshamir.pc
+man/shamir.7
+man/shamir_get_keys.3
+man/shamir_init_poly.3
+man/shamir_poly_size.3
+man/shamir_recover_secret.3
+])
+
+AC_CONFIG_HEADERS([config.h])
+
+AC_OUTPUT

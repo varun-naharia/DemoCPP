@@ -1,0 +1,2 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc ../../lib/libparse.a CMakeFiles/parse.dir/thrift/thrifty.cc.o CMakeFiles/parse.dir/thrift/thriftl.cc.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib ../../lib/libparse.a

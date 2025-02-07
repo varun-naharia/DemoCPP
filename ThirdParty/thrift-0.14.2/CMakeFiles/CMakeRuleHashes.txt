@@ -1,0 +1,6 @@
+# Hashes of file build rules.
+a08c732a92c091eba74cbe6548a662e6 CMakeFiles/uninstall
+b8c249843918e3c9700c50ec0044d51c compiler/cpp/CMakeFiles/copy-thrift-compiler
+8f518391bc50ad46ddab5d8b447405f4 compiler/cpp/thrift
+a1255469f93a47c4aab01c118c93a59e compiler/cpp/thrift/thriftl.cc
+0b9e1a857c583fbe927f26c3afc576cd compiler/cpp/thrift/thrifty.cc

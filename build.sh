@@ -44,7 +44,7 @@ build_ios_project() {
 
     echo "Running CMake for iOS..."
     cmake -G "Unix Makefiles" \
-        -DCMAKE_TOOLCHAIN_FILE='/Users/varun/Downloads/ios-cmake-master/ios.toolchain.cmake' \
+        -DCMAKE_TOOLCHAIN_FILE='/Users/Technaharia/Downloads/ios-cmake-master/ios.toolchain.cmake' \
         -DPLATFORM=OS64 \
         -DTARGET_PLATFORM=iOS \
         -DARCHITECTURE=arm64 ..

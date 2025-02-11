@@ -33,7 +33,7 @@ set(ZLIB_DIR zlib-1.2.11)
 if(TARGET_PLATFORM STREQUAL "iOS")
     message("building for iOS")
     set(EXTERNAL_PROJECT_CMAKE_ARGS
-        -DCMAKE_TOOLCHAIN_FILE='/Users/varun/Downloads/ios-cmake-master/ios.toolchain.cmake'
+        -DCMAKE_TOOLCHAIN_FILE='/Users/Technaharia/Downloads/ios-cmake-master/ios.toolchain.cmake'
         -DPLATFORM=OS64
         -DCMAKE_BUILD_TYPE=Release
     )
@@ -45,7 +45,7 @@ if(TARGET_PLATFORM STREQUAL "iOS")
         set(BOOST_INSTALL_COMMAND
             ./b2 -j6 install 
             --prefix=<INSTALL_DIR>
-            -sBOOST_BUILD_USER_CONFIG=/Users/varun/Documents/Projects/CPP/Demo/ThirdParty/boost-config.jam 
+            -sBOOST_BUILD_USER_CONFIG=/Users/Technaharia/Downloads/Demo/ThirdParty/boost-config.jam 
             toolset=clang-iphoneos 
             target-os=iphone 
             variant=release 
@@ -57,7 +57,7 @@ if(TARGET_PLATFORM STREQUAL "iOS")
         )
 
         set(EXTERNAL_PROJECT_CMAKE_ARGS
-            -DCMAKE_TOOLCHAIN_FILE='/Users/varun/Downloads/ios-cmake-master/ios.toolchain.cmake'
+            -DCMAKE_TOOLCHAIN_FILE='/Users/Technaharia/Downloads/ios-cmake-master/ios.toolchain.cmake'
             -DPLATFORM=OS64
             -DCMAKE_BUILD_TYPE=Release
             -DCMAKE_INSTALL_PREFIX=${THIRDPARTY_INSTALL_DIR}
@@ -82,11 +82,11 @@ if(TARGET_PLATFORM STREQUAL "iOS")
         )
 
         set(EXTERNAL_PROJECT_CMAKE_ARGS_FOR_LEVELDB
-            -DCMAKE_TOOLCHAIN_FILE='/Users/varun/Downloads/ios-cmake-master/ios.toolchain.cmake'
+            -DCMAKE_TOOLCHAIN_FILE='/Users/Technaharia/Downloads/ios-cmake-master/ios.toolchain.cmake'
             -DPLATFORM=OS64           
         )
         set(PLATFORM_NAME "iOS Device")
-        set(TOOLCHAIN_FILE "/Users/varun/Downloads/ios-cmake-master/ios.toolchain.cmake")
+        set(TOOLCHAIN_FILE "/Users/Technaharia/Downloads/ios-cmake-master/ios.toolchain.cmake")
         set(PLATFORM "OS64")
         set(CMAKE_OSX_ARCHITECTURES "arm64")
     elseif(ARCHITECTURE STREQUAL "x86_64")
@@ -95,7 +95,7 @@ if(TARGET_PLATFORM STREQUAL "iOS")
        set(BOOST_INSTALL_COMMAND
         ./b2 -j6 install 
         --prefix=<INSTALL_DIR>
-        -sBOOST_BUILD_USER_CONFIG=/Users/varun/Documents/Projects/CPP/Demo/ThirdParty/boost-config.jam 
+        -sBOOST_BUILD_USER_CONFIG=/Users/Technaharia/Downloads/Demo/ThirdParty/boost-config.jam 
         toolset=clang-iphonesimulator 
         target-os=iphonesimulator 
         variant=release 
@@ -106,7 +106,7 @@ if(TARGET_PLATFORM STREQUAL "iOS")
         -d+2
        )
         set(PLATFORM_NAME "iOS Simulator")
-        set(TOOLCHAIN_FILE "/Users/varun/Downloads/ios-cmake-master/ios.toolchain.cmake")
+        set(TOOLCHAIN_FILE "/Users/Technaharia/Downloads/ios-cmake-master/ios.toolchain.cmake")
         set(PLATFORM "SIMULATOR64")
         set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64")
     else()
@@ -219,29 +219,29 @@ set (CMAKE_OSX_DEPLOYMENT_TARGET 10.13)
 
 
 
-# ExternalProject_Add(bcrypt
-#     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/${BCRYPT_DIR}
-#     INSTALL_DIR ${THIRDPARTY_INSTALL_DIR}
-#     CMAKE_ARGS ${EXTERNAL_PROJECT_CMAKE_ARGS}
-#     BUILD_COMMAND make
-#     CMAKE_CACHE_ARGS -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>)
+ExternalProject_Add(bcrypt
+    SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/${BCRYPT_DIR}
+    INSTALL_DIR ${THIRDPARTY_INSTALL_DIR}
+    CMAKE_ARGS ${EXTERNAL_PROJECT_CMAKE_ARGS}
+    BUILD_COMMAND make
+    CMAKE_CACHE_ARGS -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>)
 
-# ExternalProject_Add(msgpack
-#     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/${MSGPACK_DIR}
-#     INSTALL_DIR ${THIRDPARTY_INSTALL_DIR}
-#     CMAKE_ARGS ${EXTERNAL_PROJECT_CMAKE_ARGS}
-#         -DMSGPACK_BUILD_TESTS=OFF
-#     CMAKE_CACHE_ARGS -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>)
+ExternalProject_Add(msgpack
+    SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/${MSGPACK_DIR}
+    INSTALL_DIR ${THIRDPARTY_INSTALL_DIR}
+    CMAKE_ARGS ${EXTERNAL_PROJECT_CMAKE_ARGS}
+        -DMSGPACK_BUILD_TESTS=OFF
+    CMAKE_CACHE_ARGS -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>)
 
-# ExternalProject_Add(leveldb
-#     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/${LEVELDB_DIR}
-#     INSTALL_DIR ${THIRDPARTY_INSTALL_DIR}
-#     CMAKE_ARGS ${EXTERNAL_PROJECT_CMAKE_ARGS_FOR_LEVELDB}
-#         -DHAVE_CRC32C=OFF
-#         -DHAVE_SNAPPY=OFF
-#         -DHAVE_TCMALLOC=OFF
-#         -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> -DLEVELDB_BUILD_TESTS:BOOL=OFF -DLEVELDB_BUILD_BENCHMARKS:BOOL=OFF -DCMAKE_POSITION_INDEPENDENT_CODE:BOOL=ON
-#     )
+ExternalProject_Add(leveldb
+    SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/${LEVELDB_DIR}
+    INSTALL_DIR ${THIRDPARTY_INSTALL_DIR}
+    CMAKE_ARGS ${EXTERNAL_PROJECT_CMAKE_ARGS_FOR_LEVELDB}
+        -DHAVE_CRC32C=OFF
+        -DHAVE_SNAPPY=OFF
+        -DHAVE_TCMALLOC=OFF
+        -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> -DLEVELDB_BUILD_TESTS:BOOL=OFF -DLEVELDB_BUILD_BENCHMARKS:BOOL=OFF -DCMAKE_POSITION_INDEPENDENT_CODE:BOOL=ON
+    )
 
 # Add ExternalProject for zlib
 ExternalProject_Add(zlib
@@ -327,87 +327,78 @@ set(BOOST_LIBRARY_DIR ${THIRDPARTY_INSTALL_DIR})
 
 
 
-# ExternalProject_Add(curl
-#     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/${CURL_DIR}
-#     INSTALL_DIR ${THIRDPARTY_INSTALL_DIR}
-#     CMAKE_ARGS
-#         -DCMAKE_TOOLCHAIN_FILE=/Users/varun/Downloads/ios-cmake-master/ios.toolchain.cmake
-#         -DPLATFORM=OS64
-#         -DCMAKE_BUILD_TYPE=Release
-#         -DCMAKE_INSTALL_PREFIX=<INSTALL_DIR>
-#         -DCURL_USE_OPENSSL=ON
-#         -DCURL_ZLIB=OFF
-#         -DBUILD_SHARED_LIBS=ON
-#         -DBUILD_CURL_EXE=OFF
-#         -DENABLE_ARES=OFF
-#         -DENABLE_MANUAL=OFF
-#         -DENABLE_THREADED_RESOLVER=ON
-#         -DCMAKE_USE_LIBSSH2=OFF
-#         -DCMAKE_C_FLAGS="-DHAVE_FSEEKO=1"
-#         -DHAVE_LIBSOCKET=OFF
-#         -DCURL_DISABLE_LIBIDN2=ON
-#         -DHAVE__FSEEKI64=OFF
-#         -DHAVE_FSEEKO=OFF
-#         -DHAVE_LIBIDN2=OFF
-#         -DOPENSSL_ROOT_DIR=${OPENSSL_INSTALL_DIR}
-#         -DOPENSSL_LIBRARIES=${OPENSSL_INSTALL_DIR}/lib
-#         -DUSE_NGHTTP2=OFF
-#         -DCURL_USE_LIBPSL=OFF
-#         -DCURL_USE_LIBSSH2=OFF
-#         -DCMAKE_EXE_LINKER_FLAGS="-framework System -framework Security -framework Foundation"
+ExternalProject_Add(curl
+    SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/${CURL_DIR}
+    INSTALL_DIR ${THIRDPARTY_INSTALL_DIR}
+    CMAKE_ARGS
+        -DCMAKE_TOOLCHAIN_FILE=/Users/Technaharia/Downloads/ios-cmake-master/ios.toolchain.cmake
+        -DPLATFORM=OS64
+        -DCMAKE_BUILD_TYPE=Release
+        -DCMAKE_INSTALL_PREFIX=<INSTALL_DIR>
+        -DCURL_USE_OPENSSL=ON
+        -DCURL_ZLIB=OFF
+        -DBUILD_SHARED_LIBS=ON
+        -DBUILD_CURL_EXE=OFF
+        -DENABLE_ARES=OFF
+        -DENABLE_MANUAL=OFF
+        -DENABLE_THREADED_RESOLVER=ON
+        -DCMAKE_USE_LIBSSH2=OFF
+        -DCMAKE_C_FLAGS="-DHAVE_FSEEKO=1"
+        -DHAVE_LIBSOCKET=OFF
+        -DCURL_DISABLE_LIBIDN2=ON
+        -DHAVE__FSEEKI64=OFF
+        -DHAVE_FSEEKO=OFF
+        -DHAVE_LIBIDN2=OFF
+        -DOPENSSL_ROOT_DIR=${OPENSSL_INSTALL_DIR}
+        -DOPENSSL_LIBRARIES=${OPENSSL_INSTALL_DIR}/lib
+        -DUSE_NGHTTP2=OFF
+        -DCURL_USE_LIBPSL=OFF
+        -DCURL_USE_LIBSSH2=OFF
+        -DCMAKE_EXE_LINKER_FLAGS="-framework System -framework Security -framework Foundation"
 
-#     BUILD_COMMAND ${CMAKE_COMMAND} --build <BINARY_DIR> --target all
-#     INSTALL_COMMAND ${CMAKE_COMMAND} --install <BINARY_DIR> --prefix <INSTALL_DIR>
-# )
+    BUILD_COMMAND ${CMAKE_COMMAND} --build <BINARY_DIR> --target all
+    INSTALL_COMMAND ${CMAKE_COMMAND} --install <BINARY_DIR> --prefix <INSTALL_DIR>
+)
 
 
-# # Platform-specific adjustments for iOS
-# if(APPLE)
-#     ExternalProject_Add_Step(curl
-#         fixinstallname
-#         COMMAND ${CMAKE_INSTALL_NAME_TOOL} -id "@rpath/libcurl.4.dylib" <INSTALL_DIR>/lib/libcurl.4.dylib
-#         DEPENDEES install
-#     )
-# endif()
+# Platform-specific adjustments for iOS
+if(APPLE)
+    ExternalProject_Add_Step(curl
+        fixinstallname
+        COMMAND ${CMAKE_INSTALL_NAME_TOOL} -id "@rpath/libcurl.4.dylib" <INSTALL_DIR>/lib/libcurl.4.dylib
+        DEPENDEES install
+    )
+endif()
 
-# # Add dependencies
-# add_dependencies(curl openssl zlib)
+# Add dependencies
+add_dependencies(curl openssl zlib)
 
 
 ExternalProject_Add(thrift
         SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/${THRIFT_DIR}
         INSTALL_DIR ${THIRDPARTY_INSTALL_DIR}
         CMAKE_ARGS ${EXTERNAL_PROJECT_CMAKE_ARGS}
-            -DWITH_OPENSSL=${THIRDPARTY_INSTALL_DIR}
-            -DCMAKE_PROGRAM_PATH:PATH=/usr/local/opt/bison/bin/
-            -DCMAKE_BUILD_TYPE:STRING=Release
-            -DCMAKE_CXX_FLAGS:STRING=${DEVELOP_COMPILE_OPTIONS}
-            -DCMAKE_CXX_STANDARD:STRING=20
-            -DCMAKE_C_FLAGS:STRING=${DEVELOP_COMPILE_OPTIONS}
-            -DCMAKE_EXE_LINKER_FLAGS:STRING=${DEVELOP_EXEC_STATIC_LINK_FLAGS}
-            -DCMAKE_INSTALL_LIBDIR:PATH=lib
-            -DCMAKE_INSTALL_PREFIX:PATH=${THIRDPARTY_INSTALL_DIR}
-            -DCMAKE_PREFIX_PATH:STRING=${CMAKE_PREFIX_PATH}
-            -DCMAKE_FIND_ROOT_PATH:STRING=${CMAKE_FIND_ROOT_PATH}
-            -DCMAKE_POSITION_INDEPENDENT_CODE:BOOL=ON
-            -DBUILD_TESTING:BOOL=OFF
-            -DBUILD_CPP:BOOL=ON
-            -DBUILD_C_GLIB:BOOL=OFF
-            -DBUILD_JAVA:BOOL=OFF
-            -DBUILD_JAVASCRIPT:BOOL=OFF
-            -DBUILD_KOTLIN:BOOL=OFF
-            -DBUILD_NODEJS:BOOL=OFF
-            -DBUILD_PYTHON:BOOL=OFF
-            -DBUILD_EXAMPLES:BOOL=OFF
-            -DBUILD_TUTORIALS:BOOL=OFF
-            -DWITH_STATIC_LIB:BOOL=ON
-            -DOPENSSL_ROOT_DIR:PATH=${OPENSSL_INSTALL_DIR}
-            -DOPENSSL_USE_STATIC_LIBS:BOOL=TRUE
-             DEPENDS boost zlib openssl
+            -DOPENSSL_ROOT_DIR=${OPENSSL_INSTALL_DIR}
+            -DOPENSSL_CRYPTO_LIBRARY=${OPENSSL_INSTALL_DIR}/lib/libcrypto.a
+            -DOPENSSL_SSL_LIBRARY=${OPENSSL_INSTALL_DIR}/lib/libssl.a
+            -DBoost_INCLUDE_DIR=${BOOST_INCLUDE_DIR}
+            -DWITH_ZLIB=${ZLIB_INSTALL_DIR}
+            -DCMAKE_FIND_LIBRARY_SUFFIXES=".a"
+            -DBUILD_SHARED_LIBS=ON
+            -DBUILD_JAVA=OFF
+            -DBUILD_JAVASCRIPT=OFF
+            -DBUILD_NODEJS=OFF
+            -DBUILD_PYTHON=OFF
+            -DBUILD_PY3=OFF
+            -DBUILD_QT=OFF
+            -DBUILD_QT4=OFF
+            -DBUILD_RUBY=OFF
+            -DBUILD_PHP=OFF
+            -DBUILD_SWIFT=OFF
+            -DBUILD_TESTING=OFF
             
             BUILD_COMMAND make clean && make CFLAGS+=-DOPENSSL_NO_SSL3 CFLAGS+=-fPIC CXXFLAGS+=-DOPENSSL_NO_SSL3 CXXFLAGS+=-fPIC
-            # BUILD_IN_SOURCE 1
-            INSTALL_COMMAND make install
+        INSTALL_COMMAND make install
     )
 # ExternalProject_Add_Step(thrift
 #     fixinstallname
@@ -415,8 +406,8 @@ ExternalProject_Add(thrift
 #     DEPENDEES install
 # )
 
-ExternalProject_Get_Property(thrift INSTALL_DIR)
-set(THRIFT_INSTALL_DIR ${INSTALL_DIR})
+# ExternalProject_Get_Property(thrift INSTALL_DIR)
+# set(THRIFT_INSTALL_DIR ${INSTALL_DIR})
 
 # ExternalProject_Add(thrift-gen
 #     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/${THRIFT_GEN_DIR}

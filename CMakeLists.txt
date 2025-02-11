@@ -56,7 +56,7 @@ ExternalProject_Add(
 if(TARGET_PLATFORM STREQUAL "iOS")
     message("building for iOS")
     set(EXTERNAL_PROJECT_CMAKE_ARGS
-        -DCMAKE_TOOLCHAIN_FILE='/Users/varun/Downloads/ios-cmake-master/ios.toolchain.cmake'
+        -DCMAKE_TOOLCHAIN_FILE='/Users/Technaharia/Downloads/ios-cmake-master/ios.toolchain.cmake'
         -DPLATFORM=OS64
         -DCMAKE_BUILD_TYPE=Release
     )

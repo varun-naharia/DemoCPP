@@ -11,7 +11,7 @@ set(CMAKE_CXX_COMPILER "xcrun clang")
 # Set the source and build directories
 set(OPENSSL_DIR openssl-1.1.1c)
 set(BOOST_DIR boost-1.86.0)
-set(THRIFT_DIR thrift-0.14.2)
+set(THRIFT_DIR thrift-0.21.0)
 set(CURL_DIR curl-8.11.0)
 set(THRIFT_GEN_DIR thrift-gen)
 set(JSONCPP_DIR jsoncpp-master)
@@ -349,6 +349,9 @@ ExternalProject_Add(curl
         -DHAVE__FSEEKI64=OFF
         -DHAVE_FSEEKO=OFF
         -DHAVE_LIBIDN2=OFF
+        -DCURL_DISABLE_LIBIDN2=ON
+        -DHAVE_IDN2_H=OFF
+        -DUSE_LIBIDN2=OFF
         -DOPENSSL_ROOT_DIR=${OPENSSL_INSTALL_DIR}
         -DOPENSSL_LIBRARIES=${OPENSSL_INSTALL_DIR}/lib
         -DUSE_NGHTTP2=OFF
@@ -379,11 +382,11 @@ ExternalProject_Add(thrift
         INSTALL_DIR ${THIRDPARTY_INSTALL_DIR}
         CMAKE_ARGS ${EXTERNAL_PROJECT_CMAKE_ARGS}
             -DOPENSSL_ROOT_DIR=${OPENSSL_INSTALL_DIR}
-            -DOPENSSL_CRYPTO_LIBRARY=${OPENSSL_INSTALL_DIR}/lib/libcrypto.a
-            -DOPENSSL_SSL_LIBRARY=${OPENSSL_INSTALL_DIR}/lib/libssl.a
+            -DOPENSSL_CRYPTO_LIBRARY=${OPENSSL_INSTALL_DIR}/lib/libcrypto.1.1.dylib
+            -DOPENSSL_SSL_LIBRARY=${OPENSSL_INSTALL_DIR}/lib/libssl.1.1.dylib
             -DBoost_INCLUDE_DIR=${BOOST_INCLUDE_DIR}
             -DWITH_ZLIB=${ZLIB_INSTALL_DIR}
-            -DCMAKE_FIND_LIBRARY_SUFFIXES=".a"
+            -DCMAKE_FIND_LIBRARY_SUFFIXES=".dylib"
             -DBUILD_SHARED_LIBS=ON
             -DBUILD_JAVA=OFF
             -DBUILD_JAVASCRIPT=OFF
@@ -400,6 +403,15 @@ ExternalProject_Add(thrift
             BUILD_COMMAND make clean && make CFLAGS+=-DOPENSSL_NO_SSL3 CFLAGS+=-fPIC CXXFLAGS+=-DOPENSSL_NO_SSL3 CXXFLAGS+=-fPIC
         INSTALL_COMMAND make install
     )
+
+    # Ensure OpenSSL is built before running lipo checks
+add_custom_target(check_openssl_arch ALL
+    COMMAND lipo -info ${OPENSSL_INSTALL_DIR}/lib/libcrypto.a
+    COMMAND lipo -info ${OPENSSL_INSTALL_DIR}/lib/libssl.a
+    COMMENT "Checking OpenSSL architectures..."
+    VERBATIM
+    DEPENDS thrift  # Ensure it runs after 'thrift' (or any other dependent target)
+)
 # ExternalProject_Add_Step(thrift
 #     fixinstallname
 #     COMMAND ${CMAKE_INSTALL_NAME_TOOL} -id "@rpath/libthrift-0.14.2.dylib" <INSTALL_DIR>/lib/libthrift-0.14.2.dylib

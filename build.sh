@@ -50,7 +50,7 @@ build_ios_project() {
         -DARCHITECTURE=arm64 ..
         
     echo "Building the iOS project..."
-    cmake --build .  | tee build-ios.log
+    cmake --build . -v | tee build-ios.log
     echo "iOS build completed."
 }
 
